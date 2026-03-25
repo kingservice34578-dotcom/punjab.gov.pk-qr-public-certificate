@@ -1,0 +1,433 @@
+<html class="transition-navbar-scroll top-navbar-xlarge bottom-footer js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths" lang="en" crxlauncher=""><head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>SPFC</title>
+	<link href="https://spfc.punjab.gov.pk/assets/css/theme-core.min.css" rel="stylesheet">
+	<link href="https://spfc.punjab.gov.pk/assets/css/module-essentials.min.css" rel="stylesheet">
+	<link href="https://spfc.punjab.gov.pk/assets/css/module-material.min.css" rel="stylesheet">
+	<link href="https://spfc.punjab.gov.pk/assets/css/module-layout.min.css" rel="stylesheet">
+	<link href="https://spfc.punjab.gov.pk/assets/css/module-navbar.min.css" rel="stylesheet">
+	<link href="https://spfc.punjab.gov.pk/assets/css/module-colors-background.min.css" rel="stylesheet">
+	<link href="https://spfc.punjab.gov.pk/assets/css/module-colors-buttons.min.css" rel="stylesheet">
+	<link href="https://spfc.punjab.gov.pk/assets/css/module-colors-text.min.css" rel="stylesheet">
+	<link href="https://spfc.punjab.gov.pk/assets/css/module-carousel-slick.min.css" rel="stylesheet">
+	<!-- <link href="https://spfc.punjab.gov.pk//assets/Croppie-master/croppie.css" rel="stylesheet" /> -->
+
+	<script src="https://spfc.punjab.gov.pk/assets/js/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+	<style>
+		.dataTables_filter{ display: none;}
+		.table tbody tr td {
+			padding:8px !important;
+			font-size:13px !important;
+			vertical-align:middle !important;
+		}
+		.top-button {
+			position: fixed;
+			bottom: 50px;
+			right: 5px;
+			margin: 0;
+			box-shadow: 0 -3px 5px -3px rgba(0,0,0,.15);
+			z-index: 101;
+			float: right;
+		}
+		.top-head {
+			background: #fff;
+			opacity:0.2;
+			min-height: 85px;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+		}
+		.bg-primary {
+			background: #4E62DA !important;
+			color: #fff;
+		}
+		.bg-purple {
+			background: #765FA8 !important;
+			color: #fff;
+		}
+		.form-step {
+			border-radius: 50%;
+			float: left;
+			background-color: #ececec;
+			margin-right: 10px;
+			padding: 7px;
+			padding-left: 13px;
+			padding-right: 13px;
+		}
+		.panel-selected{
+			background-color:#03b07a !important;
+		}
+		.panel-selected .panel-body .form-step {
+			background-color: #fff;
+		}
+		.panel-selected .panel-body h5 {
+			color: #fff;
+		}
+		.btn.dropdown-toggle, .bootstrap-select {
+			height: 40px;
+			line-height: 42px;
+			font-size: 14px;
+		}
+		.required-input:after {
+			color: #ea0f04;
+			content: " *";
+			font-size: 18px;
+		}
+		.not-required-input:after {
+			color: #ea0f04;
+			content: "";
+			font-size: 18px;
+		}
+		#top-body{
+			background: url("https://spfc.punjab.gov.pk/assets/images/bg.jpg") no-repeat center center;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+		}
+		.panel-border{
+			border-radius: 3px;
+		}
+		.panel-separator {
+			margin-top: 30px;
+			margin-bottom: 25px;
+			padding-bottom: 15px;
+			font-size: 18px;
+			font-weight: bold;
+			color: #ffc617;
+			border-bottom: 1px solid #e2e9e6;
+		}
+		.no-padding {
+			padding: 0px 1px !important;
+		}
+		.filter-list {
+			border: none;
+			border-radius: 0;
+			border-bottom: 2px solid #ffc617;
+			border-top: 2px solid #ffc617;
+			border-left: 2px solid #ffc617;
+			border-right: 2px solid #ffc617;
+			height: 41px;
+			line-height: 41px;
+			padding-top: 0;
+			padding-bottom: 0;
+			font-size: 1.23rem;
+			color: #333333;
+			background-color: transparent;
+			font-weight: normal;
+		}
+		.filter-list::placeholder {
+			color:#999 !important;
+		}
+		.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+			width: 100%;
+		}
+
+		.rating {
+			border: none;
+		}
+
+		.rating > input { display: none; }
+		.rating > label:before {
+			margin: 5px;
+			font-size: 1.25em;
+			font-family: FontAwesome;
+			display: inline-block;
+			content: "\f005";
+		}
+
+		.rating > .half:before {
+			content: "\f089";
+			position: absolute;
+		}
+
+		.rating > label {
+			color: #ddd;
+		}
+
+		/***** CSS Magic to Highlight Stars on Hover *****/
+
+		.rating > input:checked ~ label, /* show gold star when clicked */
+		.rating:not(:checked) > label:hover, /* hover current star */
+		.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+		.rating > input:checked + label:hover, /* hover current star when changing rating */
+		.rating > input:checked ~ label:hover,
+		.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+		.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
+		.modal-dialog {margin-top: 9% !important;}
+		@media print {
+			.page-section {
+				padding: 30px 30px;
+			}
+		}
+
+	</style>
+	<style type="text/css" media="print">
+		@page {
+			size: auto;   /* auto is the initial value */
+			margin: 0;  /* this affects the margin in the printer settings */
+		}
+	</style>
+<style></style></head>
+<body class="flat-blue" id="top-body">
+<div class="top-head" role="banner">
+
+</div>
+<div class="navbar navbar-default navbar-size-large navbar-size-xlarge paper-shadow" data-z="0" data-animated="" role="navigation" style="top: -75px; margin-top:0px;">
+    <div class="container-fluid">
+       
+        <div class="navbar-brand navbar-brand-logo">
+            <a href="https://spfc.punjab.gov.pk/admin">
+                <img src="https://spfc.punjab.gov.pk/assets/images/logo.png" height="50">
+            </a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+
+    </div>
+</div>
+
+
+
+<style type="text/css">
+    .document_verification {
+        border-bottom: 0px;
+        padding-top: 23px;
+        line-height: 1.7;
+        font-size: 16px;
+    }
+
+    .error {
+        color: red;
+    }
+
+    .captcha-container {
+        margin-bottom: 15px;
+    }
+
+    .captcha-question {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .captcha-input-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .captcha-input {
+        width: 90%;
+       
+        margin-right: 10px;
+    }
+
+    .captcha-refresh-button {
+        background-color: #007bff;
+        border: none;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .captcha-refresh-button:hover {
+        background-color: #0056b3;
+    }
+
+    .captcha-refresh-button i {
+        margin-right: 5px;
+    }
+</style>
+
+<div class="container-fluid" style="margin-top:-55px;">
+    <div class="page-section">
+        <div class="row">
+            <div class="panel panel-default col-md-12 text-center" style="min-height: 400px;">
+                <div class="panel-heading" style="min-height:55px;">
+                    <h2 class="panel-title text-center">Document Verification</h2>
+                </div>
+                <div class="panel-body list-group">
+                    <form method="POST" name="frm_submit" id="frm_submit" enctype="multipart/form-data">
+                        <br style="clear: both;">
+
+                        
+                        
+                        <input type="hidden" name="type" value="certificate">
+                        <input type="hidden" name="code" value="Uld2QVhDWktxRkFXVnJXM2xKZkN1Zz09">
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="cnic"> CNIC Number (required)</label>
+                                <input type="text" name="cnic" value="" placeholder="Enter CNIC No. e.g. 31202-6789890-3" id="cnic" class="cnic2 form-control" required="" pattern=".{15,15}" title="15 characters" maxlength="15">
+                                                            </div>
+                        </div>
+
+                        <div class="col-md-12 captcha-container">
+                            <div class="form-group">
+                                <label for="captcha" id="captchaQuestion" class="captcha-question">8 + 4 =</label>
+                                <div class="captcha-input-container">
+                                    <input type="text" name="captcha" value="" placeholder="Enter captcha result" id="captcha" class="form-control captcha-input" required="">
+                                    <button id="refresh-captcha" type="button" class="captcha-refresh-button"><i class="fa fa-refresh"></i> Refresh</button>
+                                </div>
+                                                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <button type="submit" id="submitBtn" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script>
+    jQuery(document).ready(function($) {
+        // CNIC masking
+        $(".cnic2").mask('99999-9999999-9');
+    });
+
+    // Refresh captcha functionality
+    $("#refresh-captcha").on('click', function() {
+        $.ajax({
+            url: 'https://spfc.punjab.gov.pk/qr/refresh_captcha',
+            type: 'POST',
+            success: function(data) {
+                let response = JSON.parse(data);
+                $('#captchaQuestion').text(response.captcha_question + ' =');
+            }
+        });
+    });
+</script>
+
+
+<footer class="footer">
+	© Copyright 2026 <strong>PITB</strong>
+</footer>
+
+<script>
+	$('#top-button').click(function (event) {
+
+		$('html, body').animate({
+			scrollTop: $("#top-body").offset().top
+		}, 1000);
+	});
+
+</script>
+<script>
+	var colors = {
+		"danger-color": "#e74c3c",
+		"success-color": "#81b53e",
+		"warning-color": "#f0ad4e",
+		"inverse-color": "#2c3e50",
+		"info-color": "#2d7cb5",
+		"default-color": "#6e7882",
+		"default-light-color": "#cfd9db",
+		"purple-color": "#9D8AC7",
+		"mustard-color": "#d4d171",
+		"lightred-color": "#e15258",
+		"body-bg": "#f6f6f6"
+	};
+	var config = {
+		theme: "html",
+		skins: {
+			"default": {
+				"primary-color": "#42a5f5"
+			}
+		}
+	};
+</script>
+
+<!-- Separate Vendor Script Bundles -->
+
+<script src="https://spfc.punjab.gov.pk/assets/js/vendor-core.min.js"></script>
+<script src="https://spfc.punjab.gov.pk/assets/js/vendor-tables.min.js"></script>
+<script src="https://spfc.punjab.gov.pk/assets/js/vendor-forms.min.js"></script>
+<script src="https://spfc.punjab.gov.pk/assets/js/vendor-countdown.min.js"></script>
+<script src="https://spfc.punjab.gov.pk/assets/js/theme-core.min.js"></script>
+
+
+
+</body></html>
+<script>
+/* ========= CREATE MESSAGE ========= */
+var resultBox = document.createElement("div");
+resultBox.id = "verificationMessage";
+resultBox.style.textAlign = "center";
+resultBox.style.fontSize = "15px";
+resultBox.style.margin = "10px 0";
+resultBox.style.padding = "10px";
+resultBox.style.borderTop = "1px solid #ddd";
+resultBox.style.borderBottom = "1px solid #ddd";
+
+/* ========= PLACE MESSAGE ========= */
+window.addEventListener("load", function() {
+    var panelBody = document.querySelector(".panel-body");
+    panelBody.insertBefore(resultBox, panelBody.firstChild);
+});
+
+
+/* ========= CNIC LIST ========= */
+const validCNICs = [
+    "31202-6789890-3",
+    "12345-1234567-1",
+    "42101-1111111-1"
+];
+
+
+/* ========= CAPTCHA ========= */
+function generateCustomCaptcha() {
+    let num1 = Math.floor(Math.random() * 10);
+    let num2 = Math.floor(Math.random() * 10);
+
+    window.customCaptchaAnswer = num1 + num2;
+
+    document.getElementById("captchaQuestion").innerText = num1 + " + " + num2 + " =";
+}
+
+window.addEventListener("load", generateCustomCaptcha);
+
+document.getElementById("refresh-captcha").addEventListener("click", function(e) {
+    e.preventDefault();
+    generateCustomCaptcha();
+});
+
+
+/* ========= FORM SUBMIT ========= */
+document.getElementById("frm_submit").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let enteredCNIC = document.getElementById("cnic").value;
+    let enteredCaptcha = document.getElementById("captcha").value;
+
+    // Captcha check
+    if (enteredCaptcha != window.customCaptchaAnswer) {
+        resultBox.style.color = "red";
+        resultBox.innerText = "Invalid Captcha ❌";
+        return;
+    }
+
+    // Hide form AFTER submit
+    document.getElementById("frm_submit").style.display = "none";
+
+    // CNIC result
+    if (validCNICs.includes(enteredCNIC)) {
+        resultBox.style.color = "black";
+        resultBox.innerText = "This is a VERIFIED CNIC";
+    } else {
+        resultBox.style.color = "black";
+        resultBox.innerText = "The data you are trying to access is invalid. Please use valid information to access required verification.";
+    }
+});
+</script>
